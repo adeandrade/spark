@@ -19,11 +19,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>14</version>
-  </parent>
   <groupId>org.apache.spark</groupId>
   <artifactId>spark-parent_2.11</artifactId>
   <version>2.1.2-SNAPSHOT</version>
@@ -2435,6 +2430,16 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>verticalscope-release</id>
+      <distributionManagement>
+        <repository>
+          <id>nexus</id>
+          <name>VerticalScope Nexus</name>
+          <url>http://corpint.verticalscope.com:9091/nexus/content/repositories/releases</url>
+        </repository>
+      </distributionManagement>
+    </profile>
 
     <!--
       This profile is enabled automatically by the sbt built. It changes the scope for the guava
